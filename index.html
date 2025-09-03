@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salwa Mohamed - HR Data Analyst Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        .profile-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .profile-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border: 5px solid white;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            object-fit: cover;
+        }
+
+        .header-content h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            font-weight: 300;
+        }
+
+        .header-content p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        /* Navigation */
+        nav {
+            background: white;
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+
+        nav a:hover {
+            background: #667eea;
+            color: white;
+        }
+
+        /* Main Content */
+        main {
+            padding: 4rem 0;
+        }
+
+        .section {
+            margin-bottom: 4rem;
+            background: white;
+            padding: 3rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .section h2 {
+            color: #667eea;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 2px;
+        }
+
+        /* About Me */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+        }
+
+        .vision-box {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .vision-box h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Skills */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .skill-card {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            border-left: 4px solid #667eea;
+            transition: transform 0.3s ease;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .skill-card h3 {
+            color: #667eea;
+            margin-bottom: 1rem;
+        }
+
+        .skill-card p {
+            color: #666;
+        }
+
+        /* Key Questions */
+        .questions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .question-card {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            padding: 2rem;
+            border-radius: 10px;
+            border-left: 4px solid #764ba2;
+            transition: all 0.3s ease;
+        }
+
+        .question-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .question-card h3 {
+            color: #764ba2;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        /* Projects */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+            margin-top: 2rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            border: 1px solid #f0f0f0;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .project-video {
+            background: #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .project-video video {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .project-video::before {
+            content: '▶';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 3rem;
+            color: white;
+            opacity: 0.7;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .project-content {
+            padding: 2rem;
+        }
+
+        .project-content h3 {
+            color: #667eea;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .project-tools {
+            color: #764ba2;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .project-description {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .project-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-tag {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .project-link {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .project-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        /* Contact */
+        .contact-info {
+            text-align: center;
+            font-size: 1.1rem;
+        }
+
+        .contact-info p {
+            margin-bottom: 1rem;
+        }
+
+        /* Footer */
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 2rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .profile-section {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .header-content h1 {
+                font-size: 2rem;
+            }
+
+            .section {
+                padding: 2rem;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section {
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .skill-card, .question-card {
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        /* Floating Call Button */
+        .call-fab {
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+            z-index: 1000;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .call-fab:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 32px rgba(102, 126, 234, 0.4);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="profile-section">
+                <img src="WhatsApp Image 2025-09-01 at 10.12.04_8382b85d.jpg" alt="Salwa Mohamed - HR Data Analyst" class="profile-image">
+                <div class="header-content">
+                    <h1>Hello, I'm Salwa Mohamed an HR Data Analyst</h1>
+                    <p>Transforming HR data into actionable insights</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <nav>
+        <div class="container">
+            <ul>
+                <li><a href="#about">About Me</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#questions">Key Questions</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <div class="container">
+            <section id="about" class="section">
+                <h2>About Me</h2>
+                <div class="about-content">
+                    <div class="about-text">
+                        <p>I love turning numbers into stories about employees and organizations. Using tools like Tableau, Power BI, and Excel, I transform complex spreadsheets into interactive, easy-to-understand dashboards.</p>
+                        
+                        <p>The key questions I focus on in my work are:</p>
+                        <ul style="margin-left: 2rem; margin-top: 1rem;">
+                            <li>Why do employees leave the company?</li>
+                            <li>What factors influence performance?</li>
+                            <li>How can we create a workplace that makes employees more engaged and productive?</li>
+                        </ul>
+                    </div>
+                    <div class="vision-box">
+                        <h3>My Vision</h3>
+                        <p>To help HR teams and leaders see the bigger picture clearly, make smarter data-driven decisions, and build strategies that drive growth while making employees happier.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="skills" class="section">
+                <h2>Technical Skills</h2>
+                <div class="skills-grid">
+                    <div class="skill-card">
+                        <h3>Data Visualization</h3>
+                        <p>Creating interactive dashboards and compelling visualizations that tell the story behind the data.</p>
+                    </div>
+                    <div class="skill-card">
+                        <h3>Tableau</h3>
+                        <p>Expert in building interactive dashboards, reports, and data stories for HR analytics.</p>
+                    </div>
+                    <div class="skill-card">
+                        <h3>Power BI</h3>
+                        <p>Developing comprehensive business intelligence solutions for HR performance tracking.</p>
+                    </div>
+                    <div class="skill-card">
+                        <h3>Excel</h3>
+                        <p>Advanced data analysis, pivot tables, and complex HR metrics calculations.</p>
+                    </div>
+                    <div class="skill-card">
+                        <h3>HR Analytics</h3>
+                        <p>Employee turnover analysis, performance metrics, and engagement measurement.</p>
+                    </div>
+                    <div class="skill-card">
+                        <h3>Data Storytelling</h3>
+                        <p>Translating complex HR data into clear, actionable insights for stakeholders.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="questions" class="section">
+                <h2>Key Questions I Address</h2>
+                <div class="questions-grid">
+                    <div class="question-card">
+                        <h3>Employee Retention</h3>
+                        <p>Why do employees leave the company? I analyze patterns in exit interviews, performance data, and organizational factors to identify retention risks and opportunities.</p>
+                    </div>
+                    <div class="question-card">
+                        <h3>Performance Factors</h3>
+                        <p>What factors influence performance? I examine the relationship between training, work environment, leadership, and individual performance metrics.</p>
+                    </div>
+                    <div class="question-card">
+                        <h3>Employee Engagement</h3>
+                        <p>How can we create a workplace that makes employees more engaged and productive? I measure engagement drivers and design strategies to improve workplace satisfaction.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="projects" class="section">
+                <h2>My Projects</h2>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <div class="project-video">
+                            <video controls style="width: 100%; height: 300px; object-fit: cover; border-radius: 10px;">
+                                <source src="WhatsApp Video 2025-08-29 at 19.22.48_347c0210.mp4" type="video/mp4">
+                                <img src="project 1 superstore sales.pbix" alt="Super Sales Dashboard" style="width: 100%; height: 300px; object-fit: cover; border-radius: 10px;">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                        <div class="project-content">
+                            <h3>Super Sales Dashboard</h3>
+                            <p class="project-tools">Tools: Power BI</p>
+                            <p class="project-description">Comprehensive sales analytics dashboard for superstore data. This interactive Power BI dashboard provides insights into sales performance, regional analysis, product categories, and customer behavior to drive business decisions.</p>
+                            <div class="project-features">
+                                <span class="feature-tag">Sales Analytics</span>
+                                <span class="feature-tag">Regional Performance</span>
+                                <span class="feature-tag">Product Analysis</span>
+                                <span class="feature-tag">Customer Insights</span>
+                            </div>
+                            <a href="#" class="project-link">View Project</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="contact" class="section">
+                <h2>Get In Touch</h2>
+                <div class="contact-info">
+                    <p>Ready to transform your HR data into actionable insights?</p>
+                    <p>Let's discuss how we can work together to create data-driven HR strategies.</p>
+                    <p style="margin-top: 2rem;">
+                        <strong>Email:</strong> <a href="mailto:salwamohamed2992003@gmail.com" style="color: #667eea; text-decoration: none;">salwamohamed2992003@gmail.com</a><br>
+                        <strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/salwa-mohamed-45972b242?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" style="color: #667eea; text-decoration: none;">https://www.linkedin.com/in/salwa-mohamed-45972b242</a><br>
+                        <strong>Location:</strong> Cairo, Egypt
+                        <br>
+                        <strong>Phone:</strong> <a href="tel:+201141138273" style="color: #667eea; text-decoration: none;">01141138273</a>
+                    </p>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Salwa Mohamed - HR Data Analyst Portfolio. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add scroll effect to navigation
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 100) {
+                nav.style.background = 'rgba(255, 255, 255, 0.95)';
+                nav.style.backdropFilter = 'blur(10px)';
+            } else {
+                nav.style.background = 'white';
+                nav.style.backdropFilter = 'none';
+            }
+        });
+
+        // Add intersection observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections and cards
+        document.querySelectorAll('.section, .skill-card, .question-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+            observer.observe(el);
+        });
+    </script>
+    <a href="tel:+201141138273" class="call-fab" aria-label="Call 01141138273">📞</a>
+</body>
+</html>
+
